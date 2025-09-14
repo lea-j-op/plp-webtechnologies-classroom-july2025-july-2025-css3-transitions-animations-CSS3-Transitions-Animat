@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Developer Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about" onclick="smoothScroll('about')">About</a></li>
+                <li><a href="#projects" onclick="smoothScroll('projects')">Projects</a></li>
+                <li><a href="#skills" onclick="smoothScroll('skills')">Skills</a></li>
+                <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome to My Portfolio</h2>
+                <p>I create interactive web experiences</p>
+                <button id="cta-button" onclick="animateCTAButton()">Explore My Work</button>
+            </div>
+            <div class="hero-animation">
+                <div class="floating-shape shape1"></div>
+                <div class="floating-shape shape2"></div>
+                <div class="floating-shape shape3"></div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate web developer with expertise in JavaScript, CSS animations, and creating engaging user experiences.</p>
+                    <button onclick="toggleBio()">Read More</button>
+                    <p id="full-bio" class="hidden">I have been developing websites for over 5 years. My passion lies in creating interactive experiences that delight users while maintaining clean, efficient code. I specialize in front-end development with a focus on animation and performance.</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-filters">
+                <button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('web')">Web</button>
+                <button onclick="filterProjects('mobile')">Mobile</button>
+                <button onclick="filterProjects('design')">Design</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <h3>E-Commerce Site</h3>
+                    <p>An online store with interactive product displays</p>
+                    <div class="project-image"></div>
+                </div>
+                <div class="project-card" data-category="mobile">
+                    <h3>Fitness App</h3>
+                    <p>Mobile application for workout tracking</p>
+                    <div class="project-image"></div>
+                </div>
+                <div class="project-card" data-category="design">
+                    <h3>Brand Identity</h3>
+                    <p>Complete visual identity for a tech startup</p>
+                    <div class="project-image"></div>
+                </div>
+                <div class="project-card" data-category="web">
+                    <h3>Travel Blog</h3>
+                    <p>Interactive travel experience showcase</p>
+                    <div class="project-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill" onmouseover="animateSkillBar(this)" onmouseout="resetSkillBar(this)">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill" onmouseover="animateSkillBar(this)" onmouseout="resetSkillBar(this)">
+                    <div class="skill-info">
+                        <span>CSS & Animation</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill" onmouseover="animateSkillBar(this)" onmouseout="resetSkillBar(this)">
+                    <div class="skill-info">
+                        <span>UI/UX Design</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="80"></div>
+                    </div>
+                </div>
+                <div class="skill" onmouseover="animateSkillBar(this)" onmouseout="resetSkillBar(this)">
+                    <div class="skill-info">
+                        <span>React</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-level="75"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <form id="contact-form" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" onblur="validateField(this, 'name')">
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" onblur="validateField(this, 'email')">
+                    <span class="error-message" id="email-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="5" onblur="validateField(this, 'message')"></textarea>
+                    <span class="error-message" id="message-error"></span>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025
+           Portfolio Showcase. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
